@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Abdrahiman Developer",
   description:
     "Hey, I'm Abdrahim , I build accessible, inclusive products and digital experiences for the web.",
+  verification: { google: "5EySfeUGoEZeYFK_SsE2qJD_ZcX4S9e_YmkrEtpZKZs" },
 };
 
 export default function RootLayout({

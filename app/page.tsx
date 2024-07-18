@@ -111,28 +111,8 @@ export default async function Home() {
           <div className="socails flex flex-row gap-4 max-md:gap-2 max-md:scale-95 flex-wrap mt-4 relative ">
             <a
               className="sm:flex sm:items-center sm:space-x-2 hover:z-10"
-              href="#"
-            >
-              <div className="mb-1.5 flex justify-center sm:mb-0 sm:block ">
-                <div className="rounded-lg bg-gradient-to-tl from-purple-500/80 to-rose-400/80 p-1 shadow-lg transition-all duration-300 ease-out hover:scale-[1.2] hover:rounded-[10px] shadow-purple-500/40 active:translate-y-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                    className="w-[16px] transform text-rose-100 transition delay-100 duration-500 ease-out hover:scale-110"
-                  >
-                    <path d="M4.5 4.5a3 3 0 00-3 3v9a3 3 0 003 3h8.25a3 3 0 003-3v-9a3 3 0 00-3-3H4.5zM19.94 18.75l-2.69-2.69V7.94l2.69-2.69c.944-.945 2.56-.276 2.56 1.06v11.38c0 1.336-1.616 2.005-2.56 1.06z"></path>
-                  </svg>
-                </div>
-              </div>
-              <div className="transition-colors hover:text-rose-50 font-semibold ">
-                Videos
-              </div>
-            </a>
-            <a
-              className="sm:flex sm:items-center sm:space-x-2 hover:z-10"
-              href="#"
+              href="https://github.com/abdrahiman"
+              target="_blank"
             >
               <div className="mb-1.5 flex justify-center sm:mb-0 sm:block ">
                 <div className="rounded-lg bg-gradient-to-tl from-purple-500/80 to-rose-400/80 p-1 shadow-lg transition-all duration-300 ease-out hover:scale-[1.2] hover:rounded-[10px] shadow-purple-500/40 active:translate-y-1">
@@ -148,13 +128,14 @@ export default async function Home() {
                   </svg>{" "}
                 </div>
               </div>
-              <div className="transition-colors hover:text-rose-50 font-semibold ">
+              <div className="transition-colors hover:text-rose-50 font-semibold max-md:text-sm ">
                 Github
               </div>
             </a>
             <a
               className="sm:flex sm:items-center sm:space-x-2 hover:z-10"
-              href="#"
+              href="https://facebook.com/"
+              target="_blank"
             >
               <div className="mb-1.5 flex justify-center sm:mb-0 sm:block ">
                 <div className="rounded-lg bg-gradient-to-tl from-purple-500/80 to-rose-400/80 p-1 shadow-lg transition-all duration-300 ease-out hover:scale-[1.2] hover:rounded-[10px] shadow-purple-500/40 active:translate-y-1 flex justify-center itmes-center">
@@ -170,13 +151,14 @@ export default async function Home() {
                   </svg>
                 </div>
               </div>
-              <div className="transition-colors hover:text-rose-50 font-semibold ">
+              <div className="transition-colors hover:text-rose-50 font-semibold max-md:text-sm ">
                 Facebook
               </div>
             </a>
             <a
               className="sm:flex sm:items-center sm:space-x-2 hover:z-10"
-              href="#"
+              href="https://instagram.com/0xabdrahim"
+              target="_blank"
             >
               <div className="mb-1.5 flex justify-center sm:mb-0 sm:block ">
                 <div className="rounded-lg bg-gradient-to-tl from-purple-500/80 to-rose-400/80 p-1 shadow-lg transition-all duration-300 ease-out hover:scale-[1.2] hover:rounded-[10px] shadow-purple-500/40 active:translate-y-1">
@@ -192,7 +174,7 @@ export default async function Home() {
                   </svg>{" "}
                 </div>
               </div>
-              <div className="transition-colors hover:text-rose-50 font-semibold ">
+              <div className="transition-colors hover:text-rose-50 font-semibold max-md:text-sm ">
                 Instagram
               </div>
             </a>
@@ -204,10 +186,21 @@ export default async function Home() {
         <h2 className={Rammetto.className + " text-lg max-md:text-base mb-4"}>
           Technologies i have used recently
         </h2>
-        <img
-          src="https://skillicons.dev/icons?i=flutter,python,cpp,sass,react,svelte,nextjs,nestjs,express,tailwindcss,figma,vim,git"
-          alt="Technologies icons"
-        />
+        <div className="flex flex-row gap-4 max-md:gap-2 flex-wrap">
+          <img src="https://skillicons.dev/icons?i=flutter" />
+          <img src="https://skillicons.dev/icons?i=python" />
+          <img src="https://skillicons.dev/icons?i=cpp" />
+          <img src="https://skillicons.dev/icons?i=sass" />
+          <img src="https://skillicons.dev/icons?i=react" />
+          <img src="https://skillicons.dev/icons?i=svelte" />
+          <img src="https://skillicons.dev/icons?i=nextjs" />
+          <img src="https://skillicons.dev/icons?i=nestjs" />
+          <img src="https://skillicons.dev/icons?i=express" />
+          <img src="https://skillicons.dev/icons?i=tailwindcss" />
+          <img src="https://skillicons.dev/icons?i=figma" />
+          <img src="https://skillicons.dev/icons?i=vim" />
+          <img src="https://skillicons.dev/icons?i=git" />
+        </div>
       </div>
       <div className="stats my-12">
         <h2 className={Rammetto.className + " text-lg max-md:text-base mb-4"}>
