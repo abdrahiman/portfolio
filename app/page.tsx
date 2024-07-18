@@ -1,7 +1,7 @@
 import { ProjectsSection } from "./components/projects";
 import { Rammetto_One } from "next/font/google";
 
-export const Rammetto = Rammetto_One({ subsets: ["latin"], weight: "400" });
+const Rammetto = Rammetto_One({ subsets: ["latin"], weight: "400" });
 
 let getGithub = async () => {
   const me = await fetch("https://api.github.com/users/abdrahiman");
