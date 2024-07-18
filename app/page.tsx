@@ -4,58 +4,89 @@ import { Rammetto_One } from "next/font/google";
 const Rammetto = Rammetto_One({ subsets: ["latin"], weight: "400" });
 
 let getGithub = async () => {
-  const me = await fetch("https://api.github.com/users/abdrahiman");
-  const repos = await fetch(
-    "https://api.github.com/users/abdrahiman/repos?per_page=100"
-  );
+  try {
+    const me = await fetch("https://api.github.com/users/abdrahiman");
+    const repos = await fetch(
+      "https://api.github.com/users/abdrahiman/repos?per_page=100"
+    );
 
-  const meJson = await me.json();
-  const reposJson = await repos.json();
-  const mine = reposJson.filter((repo: any) => !repo.fork);
-  const stars = mine.reduce(
-    (acc: any, curr: any) => acc + curr.stargazers_count,
-    0
-  );
-  return { followers: meJson.followers, stars };
+    const meJson = await me.json();
+    const reposJson = await repos.json();
+    const mine = reposJson?.filter((repo: any) => !repo?.fork);
+    const stars = mine?.reduce(
+      (acc: any, curr: any) => acc + curr?.stargazers_count,
+      0
+    );
+    return { followers: meJson?.followers, stars };
+  } catch (error) {
+    console.error("Error fetching GitHub data:", error);
+    return { followers: null, stars: null };
+  }
 };
+
 let getwakatime = async () => {
-  const resp = await fetch(
-    "https://wakatime.com/api/v1/users/current/all_time_since_today",
-    {
-      headers: {
-        Authorization: `Basic ${process.env.WAKATIME_KEY || ""}`,
-      },
-    }
-  );
-  const response = await resp.json();
-  return response.data.text || "";
+  try {
+    const resp = await fetch(
+      "https://wakatime.com/api/v1/users/current/all_time_since_today",
+      {
+        headers: {
+          Authorization: `Basic ${process.env.WAKATIME_KEY || ""}`,
+        },
+      }
+    );
+    const response: any = await resp.json();
+    return response?.data?.text || "";
+  } catch (error) {
+    console.error("Error fetching Wakatime data:", error);
+    return "";
+  }
 };
+
 let getviews = async () => {
-  const resp = await fetch(
-    "https://api.jsonbin.io/v3/b/6699125ead19ca34f8896306",
-    {
+  try {
+    const resp = await fetch(
+      "https://api.jsonbin.io/v3/b/6699125ead19ca34f8896306",
+      {
+        headers: {
+          "X-Master-Key": process.env.BIN_KEY || "",
+        },
+      }
+    );
+    const response = await resp.json();
+    const updatedViews = +response?.record?.views + 1;
+
+    // Update views
+    await fetch("https://api.jsonbin.io/v3/b/6699125ead19ca34f8896306", {
+      method: "PUT",
+      body: JSON.stringify({ views: updatedViews }),
       headers: {
-        "X-Master-Key":
-          process.env.BIN_KEY || "",
+        "Content-Type": "application/json",
+        "X-Master-Key": process.env.BIN_KEY || "",
       },
-    }
-  );
-  const response = await resp.json();
-  fetch("https://api.jsonbin.io/v3/b/6699125ead19ca34f8896306", {
-    method: "PUT",
-    body: JSON.stringify({ views: +response.record.views++ }),
-    headers: {
-      "Content-Type": "application/json",
-      "X-Master-Key": process.env.BIN_KEY||"",
-    },
-  });
-  return +response.record.views++ || "";
+    });
+
+    return updatedViews || "";
+  } catch (error) {
+    console.error("Error fetching or updating views data:", error);
+    return "";
+  }
 };
 
 export default async function Home() {
-  let { followers, stars } = await getGithub();
-  let wakatime = await getwakatime();
-  let views = await getviews();
+  let followers, stars, wakatime, views;
+
+  try {
+    ({ followers, stars } = await getGithub());
+    wakatime = await getwakatime();
+    views = await getviews();
+  } catch (error) {
+    console.error("Error in data fetching:", error);
+    // Set default or fallback values
+    followers = null;
+    stars = null;
+    wakatime = "";
+    views = "";
+  }
   return (
     <>
       <header className="flex flex-row gap-4 mb-16 items-center max-md:flex-col max-md:items-start">
@@ -71,11 +102,11 @@ export default async function Home() {
         </div>
         <div className="info">
           <h1 className={Rammetto.className + " text-2xl max-md:text-xl"}>
-            Abdrahimo
+            Abdrahiman
           </h1>
           <p className="text-sm mt-2 text-gray-200 font-medium">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-            modi, doloremque officia quia maiores eius nesciunt.
+            Hey, I'm Abdrahim Aneddam, I build accessible, inclusive products
+            and digital experiences for the web.
           </p>
           <div className="socails flex flex-row gap-4 max-md:gap-2 max-md:scale-95 flex-wrap mt-4 relative ">
             <a
