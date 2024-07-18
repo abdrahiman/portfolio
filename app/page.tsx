@@ -105,7 +105,7 @@ export default async function Home() {
             Abdrahiman
           </h1>
           <p className="text-sm mt-2 text-gray-200 font-medium">
-            Hey, I'm Abdrahim Aneddam, I build accessible, inclusive products
+            Hey, I am Abdrahim Aneddam, I build accessible, inclusive products
             and digital experiences for the web.
           </p>
           <div className="socails flex flex-row gap-4 max-md:gap-2 max-md:scale-95 flex-wrap mt-4 relative ">
