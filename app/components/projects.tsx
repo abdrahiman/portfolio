@@ -37,7 +37,7 @@ export function ProjectsSection() {
               <img
                 src={project.image}
                 alt={project.name}
-                className="w-full h-full object-cover min-h-fit pointer-events-none"
+                className="w-full h-full hover:z-20 object-cover min-h-fit pointer-events-none"
               />
             </a>
           </div>
