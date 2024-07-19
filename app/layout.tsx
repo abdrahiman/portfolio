@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
 import Container from "./components/container";
+import Script from "next/script";
 
 const lexend = Lexend({ subsets: ["latin"] });
 
@@ -26,6 +27,11 @@ export default function RootLayout({
         }
       >
         <Container>{children}</Container>
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="6aa87951-0901-491a-bad4-df0e86e21eba"
+        ></Script>
       </body>
     </html>
   );

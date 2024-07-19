@@ -45,27 +45,27 @@ let getwakatime = async () => {
 let getviews = async () => {
   try {
     const resp = await fetch(
-      "https://api.jsonbin.io/v3/b/6699125ead19ca34f8896306",
+      "https://eu.umami.is/api/websites/6aa87951-0901-491a-bad4-df0e86e21eba/stats?startAt=1721300400000&endAt=1721386799999&unit=hour&timezone=Europe%2FParis&compare=false",
       {
         headers: {
-          "X-Master-Key": process.env.BIN_KEY || "",
+          accept: "application/json",
+          "accept-language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+          authorization:
+            "Bearer 0Bcx/4raxF7IFx5YaoGUiqDoHYWDwP4SninYNCCbLEQSU7HnX5qS3PSH994yiXEkmXmzEXcDWsiRMI45dIzXsbQgxzEa1OgPFw7qO8A9otYlEgMkC+nsVaixRN+MclmQchN5FTqtNBPJ4+afILd+HTZM3+OTonATneKgIwp5RiV25FVDXhrc7KHLCK32jsQhLfbZsfq3Lwv5QWGnYyjiJKXDl4YldACRROOAsAlzKordDvFrL4OZUYa6lwSQyHKC14fiu9zpu3EdSmNKb+w6IJrSl3h4cAppShFrhzUUe2kSRBN5WdFwQ/vZPEBDyWmbut3dsbjJkhe9/Mpw5hNvrLxvrqb7+vW7qtPj/g==",
+          "cache-control": "max-age=0",
+          "content-type": "application/json",
         },
+        referrer:
+          "https://eu.umami.is/websites/6aa87951-0901-491a-bad4-df0e86e21eba",
+        referrerPolicy: "strict-origin-when-cross-origin",
+        body: null,
+        method: "GET",
+        credentials: "include",
       }
     );
     const response = await resp.json();
-    const updatedViews = +response?.record?.views + 1;
 
-    // Update views
-    await fetch("https://api.jsonbin.io/v3/b/6699125ead19ca34f8896306", {
-      method: "PUT",
-      body: JSON.stringify({ views: updatedViews }),
-      headers: {
-        "Content-Type": "application/json",
-        "X-Master-Key": process.env.BIN_KEY || "",
-      },
-    });
-
-    return updatedViews || "";
+    return response?.pageviews || "";
   } catch (error) {
     console.error("Error fetching or updating views data:", error);
     return "";
@@ -186,7 +186,7 @@ export default async function Home() {
         <h2 className={Rammetto.className + " text-lg max-md:text-base mb-4"}>
           Technologies i have used recently
         </h2>
-        <div className="flex flex-row gap-4 max-md:gap-2 flex-wrap">
+        <div className="flex flex-row gap-4 max-md:gap-2 flex-wrap max-md:scale-90">
           <img src="https://skillicons.dev/icons?i=flutter" />
           <img src="https://skillicons.dev/icons?i=python" />
           <img src="https://skillicons.dev/icons?i=cpp" />
