@@ -1,7 +1,10 @@
 import { ProjectsSection } from "./components/projects";
 import { Rammetto_One } from "next/font/google";
+import { getClient } from "@umami/api-client";
 
 const Rammetto = Rammetto_One({ subsets: ["latin"], weight: "400" });
+
+const client = getClient();
 
 let getGithub = async () => {
   try {
@@ -44,28 +47,14 @@ let getwakatime = async () => {
 
 let getviews = async () => {
   try {
-    const resp = await fetch(
-      "https://eu.umami.is/api/websites/6aa87951-0901-491a-bad4-df0e86e21eba/stats?startAt=1721300400000&endAt=1721386799999&unit=hour&timezone=Europe%2FParis&compare=false",
+    const { ok, data, status, error } = await client.getWebsiteStats(
+      "6aa87951-0901-491a-bad4-df0e86e21eba",
       {
-        headers: {
-          accept: "application/json",
-          "accept-language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
-          authorization:
-            "Bearer 0Bcx/4raxF7IFx5YaoGUiqDoHYWDwP4SninYNCCbLEQSU7HnX5qS3PSH994yiXEkmXmzEXcDWsiRMI45dIzXsbQgxzEa1OgPFw7qO8A9otYlEgMkC+nsVaixRN+MclmQchN5FTqtNBPJ4+afILd+HTZM3+OTonATneKgIwp5RiV25FVDXhrc7KHLCK32jsQhLfbZsfq3Lwv5QWGnYyjiJKXDl4YldACRROOAsAlzKordDvFrL4OZUYa6lwSQyHKC14fiu9zpu3EdSmNKb+w6IJrSl3h4cAppShFrhzUUe2kSRBN5WdFwQ/vZPEBDyWmbut3dsbjJkhe9/Mpw5hNvrLxvrqb7+vW7qtPj/g==",
-          "cache-control": "max-age=0",
-          "content-type": "application/json",
-        },
-        referrer:
-          "https://eu.umami.is/websites/6aa87951-0901-491a-bad4-df0e86e21eba",
-        referrerPolicy: "strict-origin-when-cross-origin",
-        body: null,
-        method: "GET",
-        credentials: "include",
+        startAt: 1721304000000,
+        endAt: 1721390399999,
       }
     );
-    const response = await resp.json();
-
-    return response?.visits?.value || "";
+    return data?.pageviews?.value || "";
   } catch (error) {
     console.error("Error fetching or updating views data:", error);
     return "";
