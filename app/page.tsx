@@ -65,7 +65,7 @@ let getviews = async () => {
     );
     const response = await resp.json();
 
-    return response?.pageviews || "";
+    return response?.visits?.value || "";
   } catch (error) {
     console.error("Error fetching or updating views data:", error);
     return "";
