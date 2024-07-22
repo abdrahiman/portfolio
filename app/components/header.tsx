@@ -32,7 +32,7 @@ export function Header({ font }: { font: NextFont }) {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 1024 1024"
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-[16px] transform text-rose-100 transition delay-100 duration-500 ease-out hover:scale-110"
@@ -55,7 +55,7 @@ export function Header({ font }: { font: NextFont }) {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 500 530"
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-[16px] transform text-rose-100 transition delay-100 duration-500 ease-out hover:scale-110"
@@ -78,7 +78,7 @@ export function Header({ font }: { font: NextFont }) {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 1024 1024"
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-[16px] transform text-rose-100 transition delay-100 duration-500 ease-out hover:scale-110"

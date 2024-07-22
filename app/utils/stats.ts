@@ -1,4 +1,5 @@
 import { getClient } from "@umami/api-client";
+import { getAnalytics } from "./umami";
 
 const client = getClient();
 
@@ -43,14 +44,10 @@ export let getwakatime = async () => {
 
 export let getviews = async () => {
   try {
-    const { ok, data, status, error } = await client.getWebsiteStats(
-      "6aa87951-0901-491a-bad4-df0e86e21eba",
-      {
-        startAt: 1721304000000,
-        endAt: 1721390399999,
-      }
-    );
-    return data?.pageviews?.value || "";
+    const resp = await getAnalytics();
+    const analytics = await resp.json();
+
+    return analytics?.pageviews.value;
   } catch (error) {
     console.error("Error fetching or updating views data:", error);
     return "";

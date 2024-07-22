@@ -7,6 +7,7 @@ import { Stats } from "./components/stats";
 const Rammetto = Rammetto_One({ subsets: ["latin"], weight: "400" });
 
 export default async function Home() {
+  
   const techs = [
     "flutter",
     "python",

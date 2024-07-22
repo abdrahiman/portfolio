@@ -27,11 +27,13 @@ export default function RootLayout({
         }
       >
         <Container>{children}</Container>
-        <Script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="6aa87951-0901-491a-bad4-df0e86e21eba"
-        ></Script>
+        {process.env.VERCEL_ENV === "production" && (
+          <Script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="6aa87951-0901-491a-bad4-df0e86e21eba"
+          ></Script>
+        )}
       </body>
     </html>
   );
