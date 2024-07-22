@@ -1,7 +1,4 @@
-import { getClient } from "@umami/api-client";
 import { getAnalytics } from "./umami";
-
-const client = getClient();
 
 export let getGithub = async () => {
   try {
