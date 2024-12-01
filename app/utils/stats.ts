@@ -43,7 +43,7 @@ export let getviews = async () => {
   try {
     const resp = await getAnalytics();
 
-    return resp || null;
+    return resp || "";
   } catch (error) {
     console.error("Error fetching or updating views data:", error);
     return "";
