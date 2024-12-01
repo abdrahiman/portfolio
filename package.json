@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/umami": "^2.10.0",
+    "@umami/api-client": "^0.76.0",
+    "axios": "^1.7.8",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"
