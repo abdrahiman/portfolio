@@ -42,9 +42,8 @@ export let getwakatime = async () => {
 export let getviews = async () => {
   try {
     const resp = await getAnalytics();
-    const analytics = await resp.json();
 
-    return analytics?.pageviews.value;
+    return resp || null;
   } catch (error) {
     console.error("Error fetching or updating views data:", error);
     return "";

@@ -37,6 +37,6 @@ export async function getAnalytics() {
     "6aa87951-0901-491a-bad4-df0e86e21eba",
     { startAt: 1721386433000, endAt: 1733054236000 }
   );
-  console.log(data?.pageviews);
-  return null;
+  console.log(data);
+  return data?.pageviews?.value;
 }
